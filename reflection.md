@@ -55,6 +55,10 @@ python -m pytest tests/test_game_logic.py
 ## 4. What did you learn about Streamlit and state?
 
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+Streamlit reruns the whole Python file from top to bottom whenever the user interacts with something like a button, text input, or checkbox. I would explain it like refreshing a webpage, except the Python script runs again each time. Because of this, normal variables can reset unless they are stored somewhere safe.
+
+Session state is Streamlit’s way of remembering values between reruns. For example, the game needs to remember the secret number, score, attempts, status, and history after each guess. By storing those values in `st.session_state`, the game can continue correctly instead of starting over every time the user clicks a button.
+
 
 ---
 
@@ -64,3 +68,9 @@ python -m pytest tests/test_game_logic.py
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+One habit I want to reuse is testing one small function at a time with pytest. Instead of only playing the full game manually, I tested functions like `check_guess` and `update_score` directly. This made it easier to find exactly where the bug was.
+
+Next time I work with AI on a coding task, I would ask it to focus on one bug at a time and explain its reasoning before making changes. I would also keep reviewing the diff carefully instead of assuming the AI’s first answer is correct.
+
+This project changed the way I think about AI-generated code because I saw that AI can produce code that looks reasonable but still has hidden logic bugs. I learned that AI is useful as a teammate, but I still need to test, verify, and understand the code myself.
