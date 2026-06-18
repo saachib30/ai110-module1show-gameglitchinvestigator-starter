@@ -77,7 +77,6 @@ with col3:
 # FIX: Updated with AI assistance so New Game uses the selected difficulty range and resets game state.
 if new_game:
     st.session_state.attempts = 0
-    # FIXME: New Game ignores the selected difficulty range and always uses 1 to 100.
     st.session_state.secret = random.randint(low, high)
     st.session_state.status = "playing"
     st.session_state.history = []
